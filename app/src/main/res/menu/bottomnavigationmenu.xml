@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_main"
+        android:icon="@drawable/homelogo"
+        android:title="@string/text_Home" />
+    <item
+        android:id="@+id/action_Team"
+        android:icon="@drawable/teamlogo"
+        android:title="@string/text_Team" />
+    <item
+        android:id="@+id/action_Fixtures"
+        android:icon="@drawable/fixtureslogo"
+        android:title="@string/text_Fixtures" />
+    <item
+        android:id="@+id/action_Results"
+        android:icon="@drawable/resultslogo"
+        android:title="@string/text_Results" />
+    <item
+        android:id="@+id/action_Table"
+        android:icon="@drawable/tablelogo"
+        android:title="@string/text_Table" />
+</menu>

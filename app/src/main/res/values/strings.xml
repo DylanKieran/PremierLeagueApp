@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PremierLeagueApp</string>
+
+    <string name="text_Team">Pick Team</string>
+    <string name="text_Fixtures">Fixtures</string>
+    <string name="text_Results">Results</string>
+    <string name="text_Table">Table</string>
+    <string name="text_Home">Home</string>
+</resources>

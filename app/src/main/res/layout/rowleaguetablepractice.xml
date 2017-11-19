@@ -1,0 +1,45 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/myTableLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <TableRow>
+        <TextView
+            android:id="@+id/teamName"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:padding="2dp"
+            android:textSize="20dp" />
+        <TextView
+            android:id="@+id/GamesPlayed"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:padding="2dp"
+            android:textSize="13dp" />
+        <TextView
+            android:id="@+id/GamesWon"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:textSize="13dp" />
+        <TextView
+            android:id="@+id/GamesDrawn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:textSize="13dp" />
+        <TextView
+            android:id="@+id/GamesLost"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:textSize="13dp" />
+        <TextView
+            android:id="@+id/TotalPoints"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:textSize="13dp" />
+    </TableRow>
+</TableLayout>

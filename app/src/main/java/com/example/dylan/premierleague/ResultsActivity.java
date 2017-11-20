@@ -29,7 +29,7 @@ public class ResultsActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.NavViewBar);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
         Menu menu = bottomNavigationView.getMenu();
-        MenuItem menuItem = menu.getItem(3);
+        MenuItem menuItem = menu.getItem(2);
         menuItem.setChecked(true);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -40,12 +40,6 @@ public class ResultsActivity extends AppCompatActivity {
                         Intent intent1 = new Intent(ResultsActivity.this, MainActivity.class);
                         intent1.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent1);
-                        break;
-
-                    case R.id.action_Team:
-                        Intent intent2 = new Intent(ResultsActivity.this, TeamActivity.class);
-                        intent2.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                        startActivity(intent2);
                         break;
 
                     case R.id.action_Fixtures:

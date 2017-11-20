@@ -7,14 +7,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.dylan.premierleague.MainActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="30sp"
-        android:id="@+id/main"
-        android:textAlignment="center"/>
-
-
         <android.support.design.widget.BottomNavigationView
             android:id="@+id/NavViewBar"
             android:layout_width="match_parent"
@@ -25,5 +17,11 @@
             app:itemTextColor="@color/colorWhite"
             app:menu="@menu/bottomnavigationmenu">
         </android.support.design.widget.BottomNavigationView>
+
+    <ListView
+        android:id="@+id/list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 
 </android.support.design.widget.CoordinatorLayout>

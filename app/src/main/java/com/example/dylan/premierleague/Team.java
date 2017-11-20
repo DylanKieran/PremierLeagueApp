@@ -2,11 +2,11 @@ package com.example.dylan.premierleague;
 
 public class Team{
 
-    public  int teamID;
-    public String teamName;
-    public String teamManager;
-    public String teamStadium;
-    public String teamLogo;
+    private  int teamID;
+    private String teamName;
+    private String teamManager;
+    private String teamStadium;
+    private String teamLogo;
     private Integer Games = 0;
     private Integer Losses = 0;
     private Integer Draws = 0;
@@ -29,6 +29,15 @@ public class Team{
     }
 
     //Getters and Setters
+
+
+    public String getTeamLogo() {
+        return teamLogo;
+    }
+
+    public void setTeamLogo(String teamLogo) {
+        this.teamLogo = teamLogo;
+    }
 
     public int getTeamID() {
         return teamID;

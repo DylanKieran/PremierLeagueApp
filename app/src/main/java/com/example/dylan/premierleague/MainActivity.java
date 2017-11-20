@@ -8,8 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,9 +24,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView title = (TextView) findViewById(R.id.main);
-        title.setText("Home");
+        //Set card layouts
+        ListView mListView = (ListView) findViewById(R.id.list_view);
 
+        //Navigation Menu
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.NavViewBar);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
         Menu menu = bottomNavigationView.getMenu();
@@ -36,12 +40,6 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.action_main:
 
-                        break;
-
-                    case R.id.action_Team:
-                        Intent intent1 = new Intent(MainActivity.this, TeamActivity.class);
-                        intent1.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                        startActivity(intent1);
                         break;
 
                     case R.id.action_Fixtures:
@@ -67,6 +65,36 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        //Stadiums Array
+        ArrayList<Stadiums> allStadiums = new ArrayList<>();
+
+        //Add all stadiums
+        allStadiums.add(new Stadiums("Arsenal","drawable://" + R.drawable.emirates,"https://www.arsenal.com/"));
+        allStadiums.add(new Stadiums("Bournemouth","drawable://" + R.drawable.deancourt,"https://www.afcb.co.uk/"));
+        allStadiums.add(new Stadiums("Brighton & Hove Albion","drawable://" + R.drawable.falmer,"https://www.brightonandhovealbion.com/"));
+        allStadiums.add(new Stadiums("Burnley","drawable://" + R.drawable.turfmoor,"https://www.burnleyfootballclub.com/"));
+        allStadiums.add(new Stadiums("Chelsea", "drawable://" + R.drawable.stamfordbridge,"https://www.chelseafc.com/"));
+        allStadiums.add(new Stadiums("Crystal Palace","drawable://" + R.drawable.selhurstpark,"https://www.cpfc.co.uk/"));
+        allStadiums.add(new Stadiums("Everton","drawable://" + R.drawable.goodisonpark,"http://www.evertonfc.com/home"));
+        allStadiums.add(new Stadiums("Huddersfield Town","drawable://" + R.drawable.kirklees,"https://www.htafc.com/"));
+        allStadiums.add(new Stadiums("Leicester City","drawable://" + R.drawable.kingpower,"https://www.lcfc.com/"));
+        allStadiums.add(new Stadiums("Liverpool","drawable://" + R.drawable.anfield,"http://www.liverpoolfc.com/"));
+        allStadiums.add(new Stadiums("Manchester City","drawable://" + R.drawable.etihad,"https://www.mancity.com/"));
+        allStadiums.add(new Stadiums("Manchester United","drawable://" + R.drawable.oldtrafford,"http://www.manutd.com/"));
+        allStadiums.add(new Stadiums("Newcastle United","drawable://" + R.drawable.stjames,"https://www.nufc.co.uk/"));
+        allStadiums.add(new Stadiums("Southampton","drawable://" + R.drawable.stmarys,"https://southamptonfc.com/"));
+        allStadiums.add(new Stadiums("Stoke City","drawable://" + R.drawable.bet365,"https://www.stokecityfc.com/"));
+        allStadiums.add(new Stadiums("Swansea City","drawable://" + R.drawable.liberty,"https://www.swanseacity.com/"));
+        allStadiums.add(new Stadiums("Tottenham Hotspur","drawable://" + R.drawable.wembley,"http://www.tottenhamhotspur.com/"));
+        allStadiums.add(new Stadiums("Watford","drawable://" + R.drawable.vicarage,"https://www.watfordfc.com/"));
+        allStadiums.add(new Stadiums("West Bromwich Albion","drawable://" + R.drawable.hawthorns,"https://www.wba.co.uk/"));
+        allStadiums.add(new Stadiums("West Ham United","drawable://" + R.drawable.londonstadium,"https://www.whufc.com/"));
+
+        //Card List view
+        CustomListAdapter adapter;
+        adapter = new CustomListAdapter(this, R.layout.cardlayout, allStadiums);
+        mListView.setAdapter(adapter);
 
         //Call Database Deletes and Inserts
         deleteInserts();
@@ -135,26 +163,26 @@ public class MainActivity extends AppCompatActivity {
     void createInserts()
     {
         //Insert Data into Teams
-        db.insertTeam(1,"Arsenal", "Arsène Wenger", "Emirates Stadium");
-        db.insertTeam(2,"Bournemouth", "Eddie Howe", "Dean Court");
-        db.insertTeam(3,"Brighton & Hove Albion", "Chris Hughton", "Falmer Stadium");
-        db.insertTeam(4,"Burnley", "Sean Dyche", "Turf Moor");
-        db.insertTeam(5,"Chelsea", "Antonio Conte", "Stamford Bridge");
-        db.insertTeam(6,"Crystal Palace", "Roy Hodgson", "Selhurst Park");
-        db.insertTeam(7,"Everton", "David Unsworth", "Goodison Park");
-        db.insertTeam(8,"Huddersfield Town", "David Wagner", "Kirklees Stadium");
-        db.insertTeam(9,"Leicester City", "Claude Puel", "King Power Stadium");
-        db.insertTeam(10,"Liverpool", "Jürgen Klopp", "Anfield");
-        db.insertTeam(11,"Manchester City", "Pep Guardiola", "Etihad Stadium");
-        db.insertTeam(12,"Manchester United", "José Mourinho", "Old Trafford");
-        db.insertTeam(13,"Newcastle United", "Rafael Benítez", "St James' Park");
-        db.insertTeam(14,"Southampton", "Mauricio Pellegrino", "St Mary's Stadium");
-        db.insertTeam(15,"Stoke City", "Mark Hughes", "bet365 Stadium");
-        db.insertTeam(16,"Swansea City", "Paul Clement", "Liberty Stadium");
-        db.insertTeam(17,"Tottenham Hotspur", "Mauricio Pochettino", "Wembley Stadium");
-        db.insertTeam(18,"Watford", "Marco Silva", "Vicarage Road");
-        db.insertTeam(19,"West Bromwich Albion", "Tony Pulis", "The Hawthorns");
-        db.insertTeam(20,"West Ham United", "David Moyes", "London Stadium");
+        db.insertTeam(1,"Arsenal", "Arsène Wenger", "emirates");
+        db.insertTeam(2,"Bournemouth", "Eddie Howe", "deancourt");
+        db.insertTeam(3,"Brighton & Hove Albion", "Chris Hughton", "falmer");
+        db.insertTeam(4,"Burnley", "Sean Dyche", "turfmoor");
+        db.insertTeam(5,"Chelsea", "Antonio Conte", "stamfordbridge");
+        db.insertTeam(6,"Crystal Palace", "Roy Hodgson", "selhurstpark");
+        db.insertTeam(7,"Everton", "David Unsworth", "goodisonpark");
+        db.insertTeam(8,"Huddersfield Town", "David Wagner", "kirklees");
+        db.insertTeam(9,"Leicester City", "Claude Puel", "kingpower");
+        db.insertTeam(10,"Liverpool", "Jürgen Klopp", "anfield");
+        db.insertTeam(11,"Manchester City", "Pep Guardiola", "etihad");
+        db.insertTeam(12,"Manchester United", "José Mourinho", "oldtrafford");
+        db.insertTeam(13,"Newcastle United", "Rafael Benítez", "stjamespark");
+        db.insertTeam(14,"Southampton", "Mauricio Pellegrino", "stmarys");
+        db.insertTeam(15,"Stoke City", "Mark Hughes", "bet365");
+        db.insertTeam(16,"Swansea City", "Paul Clement", "liberty");
+        db.insertTeam(17,"Tottenham Hotspur", "Mauricio Pochettino", "wembley");
+        db.insertTeam(18,"Watford", "Marco Silva", "vicarage");
+        db.insertTeam(19,"West Bromwich Albion", "", "hawthorns");
+        db.insertTeam(20,"West Ham United", "David Moyes", "londonstadium");
 
         //Insert Data into Fixtures
         db.insertFixture(1,"04/11/2017","15:00","Chelsea V Manchester United" ,"Chelsea","Manchester United");

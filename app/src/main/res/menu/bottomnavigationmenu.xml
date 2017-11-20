@@ -5,10 +5,6 @@
         android:icon="@drawable/homelogo"
         android:title="@string/text_Home" />
     <item
-        android:id="@+id/action_Team"
-        android:icon="@drawable/teamlogo"
-        android:title="@string/text_Team" />
-    <item
         android:id="@+id/action_Fixtures"
         android:icon="@drawable/fixtureslogo"
         android:title="@string/text_Fixtures" />

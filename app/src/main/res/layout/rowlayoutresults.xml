@@ -1,57 +1,107 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/myTableLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="10dp"
+    android:padding="14dp">
 
-    <TextView
-        android:id="@+id/ResultID"
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorCyan"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingRight="10dp"
+            android:textColor="@color/colorPurple"
+            android:text="Date" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="6dp"
+            android:paddingRight="2dp"
+            android:textColor="@color/colorPurple"
+            android:text="Home" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="6dp"
+            android:paddingRight="8dp"
+            android:textColor="@color/colorPurple"
+            android:text="HS" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="8dp"
+            android:paddingRight="2dp"
+            android:textColor="@color/colorPurple"
+            android:text="Away" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="6dp"
+            android:paddingRight="8dp"
+            android:textColor="@color/colorPurple"
+            android:text="AS" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/colorPurple"
+            android:text="R" />
+
+    </TableRow>
+
+    <TableRow
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        />
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:padding="5dp">
 
-    <TextView
-        android:id="@+id/Date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        />
+        <TextView
+            android:id="@+id/Date"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingRight="2dp" />
 
-    <TextView
-        android:id="@+id/HomeTeam"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        />
+        <TextView
+            android:id="@+id/HomeTeam"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="6dp"
+            android:paddingRight="2dp" />
 
-    <TextView
-        android:id="@+id/HomeTeamScore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        />
+        <TextView
+            android:id="@+id/HomeTeamScore"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="6dp"
+            android:paddingRight="8dp" />
 
-    <TextView
-        android:id="@+id/AwayTeam"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        />
+        <TextView
+            android:id="@+id/AwayTeam"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="8dp"
+            android:paddingRight="2dp"/>
 
-    <TextView
-        android:id="@+id/AwayTeamScore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-    />
+        <TextView
+            android:id="@+id/AwayTeamScore"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="6dp"
+            android:paddingRight="8dp" />
 
-    <TextView
-        android:id="@+id/Result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        />
+        <TextView
+            android:id="@+id/Result"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
 
-</RelativeLayout>
+    </TableRow>
+</TableLayout>

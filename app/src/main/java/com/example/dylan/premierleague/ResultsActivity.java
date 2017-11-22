@@ -23,9 +23,6 @@ public class ResultsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.resultsactivity);
 
-        TextView title = (TextView) findViewById(R.id.main);
-        title.setText("Results");
-
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.NavViewBar);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
         Menu menu = bottomNavigationView.getMenu();
@@ -70,8 +67,8 @@ public class ResultsActivity extends AppCompatActivity {
     private void populateListView()
     {
         Cursor cursor = db.getAllResultsCursor();
-        String[] fromFieldNames = new String[] {Database.KEY_RESULTID, Database.KEY_DATE, Database.KEY_HOMETEAM, Database.KEY_HOMETEAMSCORE, Database.KEY_AWAYTEAM, Database.KEY_AWAYTEAMSCORE, Database.KEY_RESULT};
-        int[] toViewIDs = new int[] {R.id.ResultID,R.id.Date, R.id.HomeTeam, R.id.HomeTeamScore, R.id.AwayTeam, R.id.AwayTeamScore, R.id.Result};
+        String[] fromFieldNames = new String[] {Database.KEY_DATE, Database.KEY_HOMETEAM, Database.KEY_HOMETEAMSCORE, Database.KEY_AWAYTEAM, Database.KEY_AWAYTEAMSCORE, Database.KEY_RESULT};
+        int[] toViewIDs = new int[] {R.id.Date, R.id.HomeTeam, R.id.HomeTeamScore, R.id.AwayTeam, R.id.AwayTeamScore, R.id.Result};
         SimpleCursorAdapter myCursorAdapter;
         myCursorAdapter = new SimpleCursorAdapter(this,R.layout.rowlayoutresults, cursor, fromFieldNames, toViewIDs, 0);
         ListView myList = (ListView) findViewById(R.id.listView);

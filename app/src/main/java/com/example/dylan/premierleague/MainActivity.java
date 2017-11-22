@@ -165,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
         //Insert Data into Teams
         db.insertTeam(1,"Arsenal", "Arsène Wenger", "emirates");
         db.insertTeam(2,"Bournemouth", "Eddie Howe", "deancourt");
-        db.insertTeam(3,"Brighton & Hove Albion", "Chris Hughton", "falmer");
+        db.insertTeam(3,"Brighton", "Chris Hughton", "falmer");
         db.insertTeam(4,"Burnley", "Sean Dyche", "turfmoor");
         db.insertTeam(5,"Chelsea", "Antonio Conte", "stamfordbridge");
         db.insertTeam(6,"Crystal Palace", "Roy Hodgson", "selhurstpark");
@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
         db.insertTeam(16,"Swansea City", "Paul Clement", "liberty");
         db.insertTeam(17,"Tottenham Hotspur", "Mauricio Pochettino", "wembley");
         db.insertTeam(18,"Watford", "Marco Silva", "vicarage");
-        db.insertTeam(19,"West Bromwich Albion", "", "hawthorns");
+        db.insertTeam(19,"West Brom", "", "hawthorns");
         db.insertTeam(20,"West Ham United", "David Moyes", "londonstadium");
 
         //Insert Data into Fixtures

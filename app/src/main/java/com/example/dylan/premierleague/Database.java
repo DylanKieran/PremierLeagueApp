@@ -25,7 +25,7 @@ public class Database extends SQLiteOpenHelper {
     public static final String TABLE_TEAM 	    = "Team";
     public static final String TABLE_FIXTURES   = "Fixtures";
     public static final String TABLE_RESULTS    = "Results";
-    //private static final String TABLE_LINK    = "Link";
+    public static final String TABLE_USER    = "user";
 
     //Common column names
     public static final String KEY_HOMETEAM     = "homeTeam";
@@ -49,8 +49,11 @@ public class Database extends SQLiteOpenHelper {
     public static final String KEY_AWAYTEAMSCORE    = "awayTeamScore";
     public static final String KEY_RESULT           = "result";
 
-    //Link table - column names
-    //private static final String KEY_ID   = "ID";
+    //User Table - column names
+    private static final String KEY_USER_ID = "user_id";
+    private static final String KEY_USER_NAME = "user_name";
+    private static final String KEY_USER_EMAIL = "user_email";
+    private static final String KEY_USER_PASSWORD = "user_password";
 
     //Table Create Statements
     //Team table create statement
@@ -72,11 +75,10 @@ public class Database extends SQLiteOpenHelper {
             + KEY_AWAYTEAMSCORE + " INTEGER," + KEY_RESULT + " TEXT,"
             + KEY_DATE + " TEXT" + ")";
 
-    /*Create a table that links the tables together
-    private static final String CREATE_TABLE_LINK = "CREATE TABLE "
-            + TABLE_LINK + "(" + KEY_ID + " INTEGER PRIMARY KEY,"
-            + KEY_TEAMID + " INTEGER," + KEY_HOMETEAM + " INTEGER,"
-            + KEY_AWAYTEAM + " INTEGER" + ")";*/
+    //User table create statement
+    private String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER + "("
+            + KEY_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_USER_NAME + " TEXT,"
+            + KEY_USER_EMAIL + " TEXT," + KEY_USER_PASSWORD + " TEXT" + ")";
 
     public Database(Context context)
     {
@@ -90,6 +92,7 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_TEAM);
         db.execSQL(CREATE_TABLE_FIXTURES);
         db.execSQL(CREATE_TABLE_RESULTS);
+        db.execSQL(CREATE_USER_TABLE);
     }
 
     @Override
@@ -295,6 +298,149 @@ public class Database extends SQLiteOpenHelper {
         Cursor cursor = db.query(TABLE_RESULTS, columns, null, null, null, null, null);
 
         return cursor;
+    }
+
+    // ------------------------------------- "User" table methods ----------------------------------
+
+    /**
+     * This method is to create user record
+     *
+     * @param user
+     */
+    public void addUser(User user) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_USER_NAME, user.getName());
+        values.put(KEY_USER_EMAIL, user.getEmail());
+        values.put(KEY_USER_PASSWORD, user.getPassword());
+
+        // Inserting Row
+        db.insert(TABLE_USER, null, values);
+        db.close();
+    }
+
+
+    /**
+     * This method to update user record
+     *
+     * @param user
+     */
+    public void updateUser(User user) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_USER_NAME, user.getName());
+        values.put(KEY_USER_EMAIL, user.getEmail());
+        values.put(KEY_USER_PASSWORD, user.getPassword());
+
+        // updating row
+        db.update(TABLE_USER, values, KEY_USER_ID + " = ?",
+                new String[]{String.valueOf(user.getId())});
+        db.close();
+    }
+
+
+    /**
+     * This method is to delete user record
+     *
+     * @param user
+     */
+    public void deleteUser(User user) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        // delete user record by id
+        db.delete(TABLE_USER, KEY_USER_ID + " = ?",
+                new String[]{String.valueOf(user.getId())});
+        db.close();
+    }
+
+    /**
+     * This method to check user exist or not
+     *
+     * @param email
+     * @return true/false
+     */
+    public boolean checkUser(String email) {
+
+        // array of columns to fetch
+        String[] columns = {
+                KEY_USER_ID
+        };
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // selection criteria
+        String selection = KEY_USER_EMAIL + " = ?";
+
+        // selection argument
+        String[] selectionArgs = {email};
+
+        // query user table with condition
+        /**
+         * Here query function is used to fetch records from user table this function works like we use sql query.
+         * SQL query equivalent to this query function is
+         * SELECT user_id FROM user WHERE user_email = 'jack@androidtutorialshub.com';
+         */
+        Cursor cursor = db.query(TABLE_USER, //Table to query
+                columns,                    //columns to return
+                selection,                  //columns for the WHERE clause
+                selectionArgs,              //The values for the WHERE clause
+                null,                       //group the rows
+                null,                      //filter by row groups
+                null);                      //The sort order
+        int cursorCount = cursor.getCount();
+        cursor.close();
+        db.close();
+
+        if (cursorCount > 0) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * This method to check user exist or not
+     *
+     * @param email
+     * @param password
+     * @return true/false
+     */
+    public boolean checkUser(String email, String password) {
+
+        // array of columns to fetch
+        String[] columns = {
+                KEY_USER_ID
+        };
+        SQLiteDatabase db = this.getReadableDatabase();
+        // selection criteria
+        String selection = KEY_USER_EMAIL + " = ?" + " AND " + KEY_USER_PASSWORD + " = ?";
+
+        // selection arguments
+        String[] selectionArgs = {email, password};
+
+        // query user table with conditions
+        /**
+         * Here query function is used to fetch records from user table this function works like we use sql query.
+         * SQL query equivalent to this query function is
+         * SELECT user_id FROM user WHERE user_email = 'jack@androidtutorialshub.com' AND user_password = 'qwerty';
+         */
+        Cursor cursor = db.query(TABLE_USER, //Table to query
+                columns,                    //columns to return
+                selection,                  //columns for the WHERE clause
+                selectionArgs,              //The values for the WHERE clause
+                null,                       //group the rows
+                null,                       //filter by row groups
+                null);                      //The sort order
+
+        int cursorCount = cursor.getCount();
+
+        cursor.close();
+        db.close();
+        if (cursorCount > 0) {
+            return true;
+        }
+
+        return false;
     }
 
 }// end class

@@ -60,6 +60,7 @@ public class CustomListAdapter extends ArrayAdapter<Stadiums> {
         //get the persons information
         String title = getItem(position).getTeamName();
         String imgUrl = getItem(position).getImgURL();
+        String webUrl = getItem(position).getTeamWebsite();
 
 
         try{
@@ -88,10 +89,10 @@ public class CustomListAdapter extends ArrayAdapter<Stadiums> {
             }
 
 
-            /*Animation animation = AnimationUtils.loadAnimation(mContext,
+            Animation animation = AnimationUtils.loadAnimation(mContext,
                     (position > lastPosition) ? R.anim.load_down_anim : R.anim.load_up_anim);
             result.startAnimation(animation);
-            lastPosition = position;*/
+            lastPosition = position;
 
             holder.title.setText(title);
 
@@ -137,4 +138,5 @@ public class CustomListAdapter extends ArrayAdapter<Stadiums> {
         ImageLoader.getInstance().init(config);
         // END - UNIVERSAL IMAGE LOADER SETUP
     }
+
 }

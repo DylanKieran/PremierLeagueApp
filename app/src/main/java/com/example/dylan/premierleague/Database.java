@@ -25,7 +25,7 @@ public class Database extends SQLiteOpenHelper {
     public static final String TABLE_TEAM 	    = "Team";
     public static final String TABLE_FIXTURES   = "Fixtures";
     public static final String TABLE_RESULTS    = "Results";
-    public static final String TABLE_USER    = "user";
+    public static final String TABLE_USER       = "user";
 
     //Common column names
     public static final String KEY_HOMETEAM     = "homeTeam";
@@ -50,10 +50,10 @@ public class Database extends SQLiteOpenHelper {
     public static final String KEY_RESULT           = "result";
 
     //User Table - column names
-    private static final String KEY_USER_ID = "user_id";
-    private static final String KEY_USER_NAME = "user_name";
-    private static final String KEY_USER_EMAIL = "user_email";
-    private static final String KEY_USER_PASSWORD = "user_password";
+    private static final String KEY_USER_ID         = "user_id";
+    private static final String KEY_USER_NAME       = "user_name";
+    private static final String KEY_USER_EMAIL      = "user_email";
+    private static final String KEY_USER_PASSWORD   = "user_password";
 
     //Table Create Statements
     //Team table create statement
@@ -76,7 +76,7 @@ public class Database extends SQLiteOpenHelper {
             + KEY_DATE + " TEXT" + ")";
 
     //User table create statement
-    private String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER + "("
+    private static final String CREATE_USER_TABLE = "CREATE TABLE " + TABLE_USER + "("
             + KEY_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_USER_NAME + " TEXT,"
             + KEY_USER_EMAIL + " TEXT," + KEY_USER_PASSWORD + " TEXT" + ")";
 

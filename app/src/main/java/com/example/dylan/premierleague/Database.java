@@ -141,7 +141,7 @@ public class Database extends SQLiteOpenHelper {
         initialValues.put(KEY_TEAMSTADIUM, teamStadium);
 
         return db.insert(TABLE_TEAM, null, initialValues);
-    }
+}
 
     /**
      * getting all Teams

@@ -1,6 +1,7 @@
 package com.example.dylan.premierleague;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -38,6 +39,7 @@ public class CustomListAdapter extends ArrayAdapter<Stadiums> {
         ImageView image;
     }
 
+
     /**
      * Default constructor for the PersonListAdapter
      * @param context
@@ -62,7 +64,6 @@ public class CustomListAdapter extends ArrayAdapter<Stadiums> {
         String imgUrl = getItem(position).getImgURL();
         String webUrl = getItem(position).getTeamWebsite();
 
-
         try{
 
 
@@ -82,6 +83,7 @@ public class CustomListAdapter extends ArrayAdapter<Stadiums> {
                 result = convertView;
 
                 convertView.setTag(holder);
+
             }
             else{
                 holder = (ViewHolder) convertView.getTag();
@@ -138,5 +140,5 @@ public class CustomListAdapter extends ArrayAdapter<Stadiums> {
         ImageLoader.getInstance().init(config);
         // END - UNIVERSAL IMAGE LOADER SETUP
     }
-
 }
+

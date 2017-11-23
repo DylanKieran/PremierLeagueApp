@@ -16,17 +16,40 @@
         android:orientation="vertical">
 
         <android.support.v7.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_gravity="center_horizontal"
             android:scaleType="fitStart"
-            android:layout_marginLeft="8dp"
+            android:layout_marginLeft="15dp"
             android:src="@drawable/premierlogo" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayoutName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:textColorHint="@color/colorCyan"
+            android:theme="@style/TextLabel">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/textInputEditTextName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_name"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textColor="@color/colorCyan"
+                android:textColorHint="@color/colorCyan"
+                android:shadowColor="@color/colorCyan"
+                android:textColorHighlight="@color/colorCyan"
+                android:textColorLink="@color/colorCyan" />
+        </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/textInputLayoutEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:textColorHint="@color/colorCyan"
             android:theme="@style/TextLabel">
 
@@ -38,10 +61,10 @@
                 android:inputType="text"
                 android:maxLines="1"
                 android:textColor="@color/colorCyan"
-                android:shadowColor="@color/colorCyan"
                 android:textColorHint="@color/colorCyan"
+                android:textColorLink="@color/colorCyan"
                 android:textColorHighlight="@color/colorCyan"
-                android:textColorLink="@color/colorCyan"/>
+                android:shadowColor="@color/colorCyan" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -60,30 +83,50 @@
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:textColor="@color/colorCyan"
+                android:textColorHint="@color/colorCyan"
+                android:shadowColor="@color/colorCyan"
                 android:textColorHighlight="@color/colorCyan"
+                android:textColorLink="@color/colorCyan"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayoutConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColorHint="@color/colorCyan"
+            android:theme="@style/TextLabel">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/textInputEditTextConfirmPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_confirm_password"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:textColor="@color/colorCyan"
                 android:textColorHint="@color/colorCyan"
                 android:textColorLink="@color/colorCyan"
-                android:shadowColor="@color/colorCyan" />
+                android:textColorHighlight="@color/colorCyan"
+                android:shadowColor="@color/colorCyan"/>
         </android.support.design.widget.TextInputLayout>
 
         <android.support.v7.widget.AppCompatButton
-            android:id="@+id/appCompatButtonLogin"
+            android:id="@+id/appCompatButtonRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:background="@color/colorCyan"
-            android:text="@string/text_login"
-            android:textColor="@color/colorPurple"/>
+            android:text="@string/text_register" />
 
         <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/textViewLinkRegister"
+            android:id="@+id/appCompatTextViewLoginLink"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:gravity="center"
-            android:text="@string/text_not_member"
-            android:textColor="@color/colorWhite"
+            android:text="Already a member? Login"
             android:textSize="16dp"
-            />
+            android:textColor="@color/colorWhite"/>
     </android.support.v7.widget.LinearLayoutCompat>
 </android.support.v4.widget.NestedScrollView>

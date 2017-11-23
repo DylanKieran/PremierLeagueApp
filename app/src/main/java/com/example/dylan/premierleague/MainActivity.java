@@ -22,8 +22,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent login = new Intent(this, LoginActivity.class);
-        startActivity(login);
+        //Intent register = new Intent(this, RegisterActivity.class);
+        //startActivity(register);
+
+        //Intent login = new Intent(this, LoginActivity.class);
+        //startActivity(login);
 
         //Set card layouts
         ListView mListView = (ListView) findViewById(R.id.list_view);

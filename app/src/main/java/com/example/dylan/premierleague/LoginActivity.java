@@ -37,7 +37,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.loginactivity);
-        //getSupportActionBar().hide();
 
         initViews();
         initListeners();
@@ -72,8 +71,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
      */
     private void initObjects() {
         databaseHelper = new Database(activity);
-        //inputValidation = new InputValidation(activity);
-
+        inputValidation = new InputValidation(activity);
     }
 
     /**
@@ -88,9 +86,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 verifyFromSQLite();
                 break;
             case R.id.textViewLinkRegister:
-                // Navigate to RegisterActivity
-                //Intent intentRegister = new Intent(getApplicationContext(), RegisterActivity.class);
-                //startActivity(intentRegister);
+                //Navigate to RegisterActivity
+                Intent intentRegister = new Intent(getApplicationContext(), RegisterActivity.class);
+                startActivity(intentRegister);
                 break;
         }
     }
@@ -117,7 +115,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             HomeIntent.putExtra("EMAIL", textInputEditTextEmail.getText().toString().trim());
             emptyInputEditText();
             startActivity(HomeIntent);
-
 
         } else {
             // Snack Bar to show success message that record is wrong

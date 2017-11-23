@@ -48,12 +48,6 @@ public class FixturesActivity extends AppCompatActivity {
                         intent3.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent3);
                         break;
-
-                    case R.id.action_Table:
-                        Intent intent4 = new Intent(FixturesActivity.this, LeagueTableActivity.class);
-                        intent4.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                        startActivity(intent4);
-                        break;
                 }
 
 

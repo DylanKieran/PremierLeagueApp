@@ -2,6 +2,7 @@ package com.example.dylan.premierleague;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,7 +22,6 @@ import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class CustomListAdapter extends ArrayAdapter<Stadiums> {
 
@@ -31,13 +31,7 @@ public class CustomListAdapter extends ArrayAdapter<Stadiums> {
     private int mResource;
     private int lastPosition = -1;
 
-    /**
-     * Holds variables in a View
-     */
-    private static class ViewHolder {
-        TextView title;
-        ImageView image;
-    }
+    ViewHolder holder;
 
 
     /**
@@ -52,6 +46,14 @@ public class CustomListAdapter extends ArrayAdapter<Stadiums> {
         mResource = resource;
     }
 
+    /**
+     * Holds variables in a View
+     */
+    private static class ViewHolder {
+        TextView title;
+        ImageView image;
+    }
+
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -62,7 +64,7 @@ public class CustomListAdapter extends ArrayAdapter<Stadiums> {
         //get the persons information
         String title = getItem(position).getTeamName();
         String imgUrl = getItem(position).getImgURL();
-        String webUrl = getItem(position).getTeamWebsite();
+        final String webUrl = getItem(position).getTeamWebsite();
 
         try{
 
@@ -83,6 +85,15 @@ public class CustomListAdapter extends ArrayAdapter<Stadiums> {
                 result = convertView;
 
                 convertView.setTag(holder);
+
+                convertView.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        // Code here executes on main thread after user presses card
+                        Uri uri = Uri.parse(webUrl); // missing 'http://' will cause crashed
+                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                        mContext.startActivity(intent);
+                    }
+                });
 
             }
             else{
@@ -140,5 +151,9 @@ public class CustomListAdapter extends ArrayAdapter<Stadiums> {
         ImageLoader.getInstance().init(config);
         // END - UNIVERSAL IMAGE LOADER SETUP
     }
+
 }
+
+
+
 

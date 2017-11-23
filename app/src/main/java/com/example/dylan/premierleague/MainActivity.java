@@ -22,12 +22,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Intent register = new Intent(this, RegisterActivity.class);
-        //startActivity(register);
-
-        //Intent login = new Intent(this, LoginActivity.class);
-        //startActivity(login);
-
         //Set card layouts
         ListView mListView = (ListView) findViewById(R.id.list_view);
 
@@ -56,12 +50,6 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent3 = new Intent(MainActivity.this, ResultsActivity.class);
                         intent3.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                         startActivity(intent3);
-                        break;
-
-                    case R.id.action_Table:
-                        Intent intent4 = new Intent(MainActivity.this, LeagueTableActivity.class);
-                        intent4.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                        startActivity(intent4);
                         break;
                 }
 

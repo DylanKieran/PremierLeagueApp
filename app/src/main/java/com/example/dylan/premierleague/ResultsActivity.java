@@ -11,7 +11,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
 
 
 public class ResultsActivity extends AppCompatActivity {
@@ -47,12 +46,6 @@ public class ResultsActivity extends AppCompatActivity {
 
                     case R.id.action_Results:
 
-                        break;
-
-                    case R.id.action_Table:
-                        Intent intent4 = new Intent(ResultsActivity.this, LeagueTableActivity.class);
-                        intent4.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                        startActivity(intent4);
                         break;
                 }
 

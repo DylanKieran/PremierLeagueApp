@@ -12,8 +12,4 @@
         android:id="@+id/action_Results"
         android:icon="@drawable/resultslogo"
         android:title="@string/text_Results" />
-    <item
-        android:id="@+id/action_Table"
-        android:icon="@drawable/tablelogo"
-        android:title="@string/text_Table" />
 </menu>

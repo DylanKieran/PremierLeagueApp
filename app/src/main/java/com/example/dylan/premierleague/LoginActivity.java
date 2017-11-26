@@ -11,10 +11,6 @@ import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 
-/**
- * Created by Dylan on 22/11/2017.
- */
-
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private final AppCompatActivity activity = LoginActivity.this;
 
@@ -43,9 +39,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         initObjects();
     }
 
-    /**
-     * This method is to initialize views
-     */
+    //This method is to initialize views
     private void initViews() {
 
         nestedScrollView = (NestedScrollView) findViewById(R.id.nestedScrollView);
@@ -58,27 +52,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
-    /**
-     * This method is to initialize listeners
-     */
+    //This method is to initialize listeners
     private void initListeners() {
         appCompatButtonLogin.setOnClickListener(this);
         textViewLinkRegister.setOnClickListener(this);
     }
 
-    /**
-     * This method is to initialize objects to be used
-     */
+    //This method is to initialize objects to be used
+
     private void initObjects() {
         databaseHelper = new Database(activity);
         inputValidation = new InputValidation(activity);
     }
 
-    /**
-     * This implemented method is to listen the click on view
-     *
-     * @param v
-     */
+    //This implemented method is to listen the click on view
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -93,9 +81,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    /**
-     * This method is to validate the input text fields and verify login credentials from SQLite
-     */
+
+    //Reference
+    ////http://www.androidtutorialshub.com/android-login-and-register-with-sqlite-database-tutorial/
+
     private void verifyFromSQLite() {
         if (!inputValidation.isInputEditTextFilled(textInputEditTextEmail, textInputLayoutEmail, getString(R.string.error_message_email))) {
             return;
@@ -129,4 +118,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         textInputEditTextEmail.setText(null);
         textInputEditTextPassword.setText(null);
     }
+
+    //End Reference
 }

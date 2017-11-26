@@ -12,14 +12,14 @@
         android:padding="5dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColor="@color/colorPurple"
             android:paddingRight="6dp"
             android:text="Date" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColor="@color/colorPurple"
             android:paddingLeft="6dp"
@@ -27,7 +27,7 @@
             android:text="Time" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColor="@color/colorPurple"
             android:paddingLeft="2dp"
@@ -36,7 +36,7 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColor="@color/colorPurple"
             android:paddingLeft="2dp"
@@ -45,34 +45,34 @@
     </TableRow>
 
     <TableRow
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorWhite"
         android:padding="5dp">
 
         <TextView
             android:id="@+id/Date"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingRight="6dp" />
 
         <TextView
             android:id="@+id/Time"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingLeft="6dp"
             android:paddingRight="2dp" />
 
         <TextView
             android:id="@+id/HomeTeam"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingLeft="2dp"
             android:paddingRight="6dp" />
 
         <TextView
             android:id="@+id/AwayTeam"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingLeft="2dp"/>
 

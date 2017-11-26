@@ -23,6 +23,9 @@ import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 
 import java.util.ArrayList;
 
+//Reference CustomListAdapter class for implementing card view list
+//https://www.youtube.com/watch?v=Cdn0jEFW6FM&t=128s
+
 public class CustomListAdapter extends ArrayAdapter<Stadiums> {
 
     private static final String TAG = "CustomListAdapter";
@@ -34,21 +37,12 @@ public class CustomListAdapter extends ArrayAdapter<Stadiums> {
     ViewHolder holder;
 
 
-    /**
-     * Default constructor for the PersonListAdapter
-     * @param context
-     * @param resource
-     * @param objects
-     */
     public CustomListAdapter(Context context, int resource, ArrayList<Stadiums> objects) {
         super(context, resource, objects);
         mContext = context;
         mResource = resource;
     }
 
-    /**
-     * Holds variables in a View
-     */
     private static class ViewHolder {
         TextView title;
         ImageView image;
@@ -61,7 +55,7 @@ public class CustomListAdapter extends ArrayAdapter<Stadiums> {
         //sets up the image loader library
         setupImageLoader();
 
-        //get the persons information
+        //get the teams information
         String title = getItem(position).getTeamName();
         String imgUrl = getItem(position).getImgURL();
         final String webUrl = getItem(position).getTeamWebsite();
@@ -153,6 +147,8 @@ public class CustomListAdapter extends ArrayAdapter<Stadiums> {
     }
 
 }
+
+//End reference
 
 
 

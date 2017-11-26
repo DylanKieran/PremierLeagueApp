@@ -7,6 +7,10 @@ import android.support.design.widget.BottomNavigationView;
 import android.util.Log;
 import java.lang.reflect.Field;
 
+//Reference
+//This code removes the Bottom Navigation default animation
+//https://stackoverflow.com/questions/41649494/how-to-remove-icon-animation-for-bottom-navigation-view-in-android
+
 public class BottomNavigationViewHelper {
     public static void disableShiftMode(BottomNavigationView view) {
         BottomNavigationMenuView menuView = (BottomNavigationMenuView) view.getChildAt(0);
@@ -30,3 +34,5 @@ public class BottomNavigationViewHelper {
         }
     }
 }
+
+//End of reference

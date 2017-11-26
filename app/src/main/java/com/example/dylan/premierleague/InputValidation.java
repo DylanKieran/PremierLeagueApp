@@ -8,26 +8,19 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
+//Reference for input validation for login and register
+//http://www.androidtutorialshub.com/android-login-and-register-with-sqlite-database-tutorial/
+
 public class InputValidation {
     private Context context;
 
-    /**
-     * constructor
-     *
-     * @param context
-     */
+
     public InputValidation(Context context) {
         this.context = context;
     }
 
-    /**
-     * method to check InputEditText filled .
-     *
-     * @param textInputEditText
-     * @param textInputLayout
-     * @param message
-     * @return
-     */
+
+    //Method to check InputEditText filled
     public boolean isInputEditTextFilled(TextInputEditText textInputEditText, TextInputLayout textInputLayout, String message) {
         String value = textInputEditText.getText().toString().trim();
         if (value.isEmpty()) {
@@ -42,14 +35,8 @@ public class InputValidation {
     }
 
 
-    /**
-     * method to check InputEditText has valid email .
-     *
-     * @param textInputEditText
-     * @param textInputLayout
-     * @param message
-     * @return
-     */
+    //Method to check InputEditText has valid email
+
     public boolean isInputEditTextEmail(TextInputEditText textInputEditText, TextInputLayout textInputLayout, String message) {
         String value = textInputEditText.getText().toString().trim();
         if (value.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(value).matches()) {
@@ -75,13 +62,11 @@ public class InputValidation {
         return true;
     }
 
-    /**
-     * method to Hide keyboard
-     *
-     * @param view
-     */
+    //Method to Hide keyboard
     private void hideKeyboardFrom(View view) {
         InputMethodManager imm = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 }
+
+//End Reference
